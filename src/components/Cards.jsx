@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getMultipleRandomAnime, filterSearch } from '../api-requests';
-// import MediaCard from "./Card"
+import MediaCard from "./Card"
 
 function Cards(props) {
   const [data, setData] = useState([]);
@@ -27,9 +27,9 @@ function Cards(props) {
 
   return (
     <div className="all-cards">
-    {/* {data.map((anime, index) => (
+    {data.map((anime, index) => (
       <MediaCard anime={anime} key={index} />
-    ))} */}
+    ))}
   </div>
   );
 }

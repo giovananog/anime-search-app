@@ -7,3 +7,17 @@
   body {
     background-color: #f0f8ff;
   }
+
+  .single-card {
+    width: 20%;
+    margin: 1%;
+    height: 30%;
+  }
+  
+  .all-cards {
+    margin: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
