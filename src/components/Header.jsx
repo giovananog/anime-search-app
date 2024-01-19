@@ -1,4 +1,5 @@
-import {useState} from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,7 +12,6 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { getAllCategories } from '../api-requests';
 import SvgIcon from '@mui/material/SvgIcon';
-import App from "./App"
 
 
 function HomeIcon(props) {
@@ -65,37 +65,32 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 export default function Header() {
+  const navigate = useNavigate();
+  
   
   async function searchCategory(event) {
     var value = event.target.value;
-    if (event.key === "Enter") {
-      setData({
-        'filter': 'categories',
-        'value': value,
-      });
-    }
+
+    const categoryUrl = `/categories/${value}`;
+    navigate(categoryUrl);
   }
   
   async function searchName(event) {
     var value = event.target.value;
-    if (event.key === "Enter") {
-      setData({
-        'filter': 'text',
-        'value': value,
-      });
-    }
+    
+    if (event.keyCode === 13) {
+      const searchURL = `/filter/${value}`;
+      navigate(searchURL);
+    } 
   }
 
   function handleClick () {
-    window.location.reload();
+    navigate('/');
   }
 
-  const [data, setData] = useState();
 
   return (
-    <div>
-
-    {data ? (<App filter={data.filter} info={data.value} i={data.i}/>) : 
+    <div> 
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
@@ -138,7 +133,6 @@ export default function Header() {
         </Toolbar>
       </AppBar>
     </Box>
-    }
     </div>
   );
 }

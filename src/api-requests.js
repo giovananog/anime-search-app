@@ -53,7 +53,7 @@ export async function getCategories(count) {
 
   export async function filterSearch(filter, info) {
     try {
-      const response = await axios.get(`https://kitsu.io/api/edge/anime?filter[` + filter + ']=' + info);
+      const response = await axios.get(`https://kitsu.io/api/edge/anime?filter[` + filter + ']=' + info +'&page[limit]=20');
       
       return response.data.data;
     } catch (error) {

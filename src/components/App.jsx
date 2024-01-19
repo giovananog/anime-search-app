@@ -1,23 +1,31 @@
-import { React } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import Cards from "./Cards";
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import Button from '@mui/material/Button';
+import React from "react";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+  } from "react-router-dom";
+import Home from "./Home";
+import Categories from "./Categories"
+import Search from "./Search"
 
 
-function App(props) {
-  function handleClick () {
-    window.location.reload();
-  }
-
+function App() {
   return (
-    <div className="app-div">
-      <Header className='app-header'/>
-      <Cards filter={props.filter} info={props.info}></Cards>
-      {!props.filter && <Button className="app-button" variant="outlined" endIcon={<NavigateNextIcon />} onClick={handleClick}> Next </Button>}
-      <Footer />
-    </div>
+    <Router>
+      <div>
+        <Routes>
+
+          <Route path="/filter/:search" element={<Search/>}>
+          </Route>
+          <Route path="/categories/:name" element={<Categories/>}>
+          </Route>
+          <Route path="/" element={<Home/>}>
+          </Route>
+          
+        </Routes>
+
+      </div>
+    </Router>
   );
 }
 
