@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useState } from 'react';
-import Card from '@mui/core/Card';
-import CardActions from '@mui/core/CardActions';
-import CardContent from '@mui/core/CardContent';
-import CardMedia from '@mui/core/CardMedia';
-import Button from '@mui/core/Button';
-import Typography from '@mui/core/Typography';
-import { CardActionArea } from '@mui/core';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 export default function MediaCard(props) {
   const [showInfo, setShowInfo] = useState(false);
