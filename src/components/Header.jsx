@@ -71,8 +71,10 @@ export default function Header() {
   async function searchCategory(event) {
     var value = event.target.value;
 
-    const categoryUrl = `/categories/${value}`;
-    navigate(categoryUrl);
+    if (event.keyCode === 13) {
+      const categoryUrl = `/categories/${value}`;
+      navigate(categoryUrl);
+    } 
   }
   
   async function searchName(event) {
